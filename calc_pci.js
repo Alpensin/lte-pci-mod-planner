@@ -57,13 +57,14 @@ function fillRow(e) {
     checkConflicts();
 };
 function checkIfDuplicateExists(w) {
-    return new Set(w).size !== w.length
+    let test_array = w.filter(value => !Number.isNaN(value));
+    return new Set(test_array).size !== test_array.length
 };
 function conflictsSearcher(mod_data) {
     config.forEach(element => {
         let mod = document.getElementById(element[0]);
         let mod_array = mod_data[element[0]]
-        if (checkIfDuplicateExists(mod_array) || mod_array.includes(NaN)) {
+        if (checkIfDuplicateExists(mod_array) || mod_array.includes(wrong_range)) {
             mod.textContent = 'NOK';
             mod.className = "nok";
         }
@@ -87,7 +88,12 @@ function checkConflicts() {
             let cell = row.cells[col_index];
             let n = cell.id.lastIndexOf('-');
             let cur_mod = cell.id.substring(n + 1);
-            mod_data[cur_mod].push(parseInt(cell.innerText));
+            console.log(cell.innerText);
+            if (cell.innerText === wrong_range) {
+                var text = cell.innerText;
+            }
+            else { var text = parseInt(cell.innerText) };
+            mod_data[cur_mod].push(text);
         };
 
     }
