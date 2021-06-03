@@ -1,0 +1,11 @@
+.center {
+    margin-left:auto;margin-right:auto;text-align:center;
+  }
+.ok {
+    color: green;
+    text-shadow: 1px 1px 1px #ccc;
+}
+.nok {
+    color: red;
+    text-shadow: 1px 1px 1px #ccc;
+}
