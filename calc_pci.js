@@ -21,7 +21,7 @@ function addRow(e) {
 
     let cellpar = newRow.insertCell();
     cellpar.id = "row-" + pci_counter + "-PAR";
-    cellpar.textContent = "Планируемый PCI " + pci_counter;
+    cellpar.textContent = "Planned PCI " + pci_counter;
     let cell_input = newRow.insertCell();
     cell_input.appendChild(createinput());
     cell_input.addEventListener('change', fillRow);
